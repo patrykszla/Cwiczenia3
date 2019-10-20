@@ -10,3 +10,70 @@ jak dodasz atrybut [..] to testuje
 act > dzialaj
 co testujemy kiedy jak i gdzie
 menu >test >test explorer
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bank
+{
+    public class Konto
+    {
+        private string klient;  //nazwa klienta
+        private decimal bilans;  //aktualny stan środków na koncie
+        private bool zablokowane = false; //stan konta
+
+
+        public Konto(string klient, decimal bilansNaStart = 0)
+        {
+            this.klient = klient;
+            this.bilans = bilansNaStart;
+        }
+
+        private String Nazwa => klient;
+        private Decimal Bilans => bilans;
+        private bool Status => zablokowane;
+
+        public void Wplata(decimal kwota)
+        { 
+            if(kwota > 0)
+            {
+                this.bilans += kwota;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Kwota nie może być ujemna");
+            }
+        }
+
+        public void Wyplata(decimal kwota)
+            {
+                if(kwota < this.bilans)
+                {
+                    this.bilans -= kwota;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Brak Wystarczających środków na koncie");
+                }
+            }
+        void BlokujKonto()
+        {
+            zablokowane = true;
+        }
+        void OdblokujKonto()
+        {
+            zablokowane = false;
+        }
+            
+           
+               
+            
+    }
+        
+}
+
+
