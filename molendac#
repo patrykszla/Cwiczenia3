@@ -1,0 +1,12 @@
+C# BANK!
+
+
+library solution
+unit test (.net framework>
+pusty projekty unit test project bank
+references solution Bank
+unit test1 > wpisujemy using Bank
+jak dodasz atrybut [..] to testuje
+act > dzialaj
+co testujemy kiedy jak i gdzie
+menu >test >test explorer
